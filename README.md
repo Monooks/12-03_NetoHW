@@ -77,7 +77,7 @@ WHERE active = 1 AND (first_name LIKE 'Kelly' OR first_name LIKE 'Willie');
 
 #### ОТВЕТ:
 ```sql
-SELECT SUBSTRING_INDEX(email,'@',1) AS addres, SUBSTRING_INDEX(email,'@',-1) AS domen
+SELECT SUBSTRING_INDEX(email,'@',1) AS address, SUBSTRING_INDEX(email,'@',-1) AS domen
 FROM customer;
 ```
 ---
@@ -87,7 +87,7 @@ FROM customer;
 
 #### ОТВЕТ:
 ```sql
-SELECT CONCAT(UPPER(LEFT(LOWER(SUBSTRING_INDEX(email,'@',1)),1)), substr(LOWER(SUBSTRING_INDEX(email,'@',1)), 2)) AS addres, 
+SELECT CONCAT(UPPER(LEFT(LOWER(SUBSTRING_INDEX(email,'@',1)),1)), substr(LOWER(SUBSTRING_INDEX(email,'@',1)), 2)) AS address, 
 CONCAT(UPPER(LEFT(SUBSTRING_INDEX(email,'@',-1),1)), substr(LOWER(SUBSTRING_INDEX(email,'@',-1)), 2)) AS domen
 FROM customer;
 ```
