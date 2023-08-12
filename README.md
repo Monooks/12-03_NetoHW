@@ -36,7 +36,9 @@ WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
 
 #### ОТВЕТ:
 ```sql
-
+SELECT amount, CAST(payment_date AS DATE)
+FROM payment
+WHERE payment_date BETWEEN 20050614 AND 20050619 AND amount > 10.00;
 ```
 ---
 ### Задание 3
@@ -45,7 +47,10 @@ WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
 
 #### ОТВЕТ:
 ```sql
-
+SELECT *
+FROM rental
+ORDER BY rental_id DESC
+LIMIT 5;
 ```
 ---
 ### Задание 4
@@ -58,7 +63,9 @@ WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
 
 #### ОТВЕТ:
 ```sql
-
+SELECT LOWER(REPLACE(first_name, 'LL', 'PP')) AS Имя, LOWER(last_name) AS Фамилия
+FROM customer
+WHERE active = 1 AND (first_name LIKE 'Kelly' OR first_name LIKE 'Willie');
 ```
 ---
 ## Дополнительные задания (со звёздочкой*)
@@ -70,7 +77,8 @@ WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
 
 #### ОТВЕТ:
 ```sql
-
+SELECT SUBSTRING_INDEX(email,'@',1) AS addres, SUBSTRING_INDEX(email,'@',-1) AS domen
+FROM customer;
 ```
 ---
 ### Задание 6*
@@ -79,6 +87,8 @@ WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
 
 #### ОТВЕТ:
 ```sql
-
+SELECT CONCAT(UPPER(LEFT(LOWER(SUBSTRING_INDEX(email,'@',1)),1)), substr(LOWER(SUBSTRING_INDEX(email,'@',1)), 2)) AS addres, 
+CONCAT(UPPER(LEFT(SUBSTRING_INDEX(email,'@',-1),1)), substr(LOWER(SUBSTRING_INDEX(email,'@',-1)), 2)) AS domen
+FROM customer;
 ```
 ---
