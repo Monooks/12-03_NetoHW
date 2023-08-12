@@ -89,7 +89,7 @@ FROM customer;
 #### ОТВЕТ:
 ```sql
 SELECT CONCAT(UPPER(LEFT(LOWER(SUBSTRING_INDEX(email,'@',1)),1)), substr(LOWER(SUBSTRING_INDEX(email,'@',1)), 2)) AS address, 
-CONCAT(UPPER(LEFT(SUBSTRING_INDEX(email,'@',-1),1)), substr(LOWER(SUBSTRING_INDEX(email,'@',-1)), 2)) AS domen
+CONCAT(UPPER(LEFT(SUBSTRING_INDEX(email,'@',-1),1)), substr(SUBSTRING_INDEX(email,'@',-1), 2)) AS domen
 FROM customer;
 ```
 ---
