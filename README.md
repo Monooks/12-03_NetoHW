@@ -36,9 +36,9 @@ WHERE district LIKE 'K%a' AND district NOT LIKE '% %';
 
 #### ОТВЕТ:
 ```sql
-SELECT amount, CAST(payment_date AS DATE)
+SELECT amount, payment_date
 FROM payment
-WHERE payment_date BETWEEN 20050614 AND 20050619 AND amount > 10.00;
+WHERE CAST(payment_date AS DATE) BETWEEN 20050614 AND 20050618 AND amount > 10.00;
 ```
 ---
 ### Задание 3
